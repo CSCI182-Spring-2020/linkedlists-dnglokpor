@@ -15,9 +15,8 @@ public:
 	}
 	virtual ~SimpleList();
 	void queueItem(int value);
+	void queueItem(int value, Node::Priority priority);
 	int deQueueItem();
-	void push(int value);
-	int pop();
 	void displayList();
 };
 

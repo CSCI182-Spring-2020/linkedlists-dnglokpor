@@ -6,7 +6,9 @@
 class Node
 {
 public:
+	enum Priority {LOW, MEDIUM, HIGH, LUDICROUS};
 	int _data;
+	Priority _priority = LOW;
 	Node* _next;
 };
 

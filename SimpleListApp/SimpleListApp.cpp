@@ -16,22 +16,15 @@ int main()
 {
     SimpleList s1;
     
-    // queue form FIFO
-    s1.queueItem(100); // queue 100
-    s1.queueItem(200); // queue 200
-    cout << s1.deQueueItem() << endl; // dequeue 100
+    // priority type queue
+    s1.queueItem(100, Node::HIGH);
+    s1.queueItem(200, Node::LOW);
+    s1.queueItem(300, Node::MEDIUM);
+    s1.queueItem(400, Node::MEDIUM);
+    s1.queueItem(500, Node::HIGH);
+    s1.queueItem(600, Node::LOW);
+    s1.queueItem(700, Node::MEDIUM);
 
-    // stack form FILO
-    s1.push(300); // pushed 300
-    cout << s1.pop() << endl; // popped 300
-    cout << s1.pop() << endl; // popped 200
-    
-    // emptied s1
-
-    s1.queueItem(100);
-    s1.queueItem(200);
-    s1.push(300);
-    s1.push(400);
     s1.displayList();
     
 }

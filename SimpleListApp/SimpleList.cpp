@@ -1,5 +1,5 @@
 #include "SimpleList.h"
-
+// constructor
 SimpleList::~SimpleList()
 {
 	
@@ -13,7 +13,7 @@ SimpleList::~SimpleList()
 }
 
 // QUEUE MANAGEMENT
-
+// append new item to the list
 void SimpleList::queueItem(int value)
 {
 	Node* newNode = new Node();
@@ -29,6 +29,7 @@ void SimpleList::queueItem(int value)
 	cout << "Queued Item: " << value << endl;
 }
 
+// pulled the first item off the list
 int SimpleList::deQueueItem()
 {
 	
@@ -54,7 +55,7 @@ int SimpleList::deQueueItem()
 }
 
 // STACK MANAGEMENT
-
+// push new item at the end of the list
 void SimpleList::push(int value)
 {
 	Node* newNode = new Node();
@@ -70,6 +71,7 @@ void SimpleList::push(int value)
 	cout << "Pushed Item: " << value << endl;
 }
 
+// pop new item from the end of the list
 int SimpleList::pop()
 {
 

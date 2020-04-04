@@ -14,10 +14,9 @@ public:
 		_head = _tail = NULL;
 	}
 	virtual ~SimpleList();
+
 	void queueItem(int value);
 	int deQueueItem();
-	void push(int value);
-	int pop();
 	void displayList();
 };
 

@@ -1,5 +1,6 @@
 #include "SimpleList.h"
 
+// constructor
 SimpleList::~SimpleList()
 {
 	
@@ -13,7 +14,7 @@ SimpleList::~SimpleList()
 }
 
 // QUEUE MANAGEMENT
-
+// append an item to the list
 void SimpleList::queueItem(int value)
 {
 	Node* newNode = new Node();
@@ -29,6 +30,7 @@ void SimpleList::queueItem(int value)
 	cout << "Queued Item: " << value << endl;
 }
 
+// pull the first element of the list
 int SimpleList::deQueueItem()
 {
 	
@@ -53,52 +55,7 @@ int SimpleList::deQueueItem()
 	return tempData;
 }
 
-// STACK MANAGEMENT
-
-void SimpleList::push(int value)
-{
-	Node* newNode = new Node();
-	newNode->_data = value; // setting the data
-	newNode->_next = NULL; // initialize the next
-	if (_head == NULL) {
-		_head = _tail = newNode;
-	}
-	else {
-		_tail->_next = newNode; // push at the end
-		_tail = newNode; // move the tail to new node
-	}
-	cout << "Pushed Item: " << value << endl;
-}
-
-int SimpleList::pop()
-{
-
-	Node* tempNode;
-	int tempData;
-
-	if (_head == NULL) {
-		return -1;
-	}
-	else {
-		tempNode = _tail; // save node to-be-popped node
-		if (_head->_next == NULL) { // last element of stack
-			_head = _tail = NULL; // set stack empty
-		}
-		else {
-			_tail = _head; // start from the head
-			while (_tail->_next != tempNode) {
-				_tail = _tail->_next; // trace back to node before tempNode
-			}
-			_tail->_next = NULL; // sever to-be-popped node from list
-		}
-	}
-	tempData = tempNode->_data; // retrieve data
-	delete tempNode; //  delete popped node
-	cout << "popped Item: " << tempData << endl;
-
-	return tempData;
-}
-
+// display all elements of the list from #_head to #_tail
 void SimpleList::displayList()
 {
 	Node* itNode = _head; // starts at head
@@ -106,8 +63,9 @@ void SimpleList::displayList()
 		cout << "Empty list." << endl;
 	}
 	else {
+		int i = 0;
 		while (itNode != NULL) { // while we are on a valid list
-			cout << itNode->_data << endl;
+			cout << "Item no." << ++i << " " << itNode->_data << endl;
 			itNode = itNode->_next;
 		}
 	}

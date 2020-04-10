@@ -37,22 +37,27 @@ int SimpleList::deQueueItem()
 	Node* tempNode;
 	int tempData;
 
-	if (_head == NULL) {
-		return -1;
-	}
-	else {
-		tempNode = _head;
-		_head = _head->_next; // moving head
+	try {
 		if (_head == NULL) {
-			// there was only one object in the list
-			_tail = NULL; // clear tail
+			throw EOL();
+		}
+		else {
+			tempNode = _head;
+			_head = _head->_next; // moving head
+			if (_head == NULL) {
+				// there was only one object in the list
+				_tail = NULL; // clear tail
+			}
+			tempData = tempNode->_data;
+			delete tempNode;
+			cout << "Dequeued Item: " << tempData << endl;
+
+			return tempData;
 		}
 	}
-	tempData = tempNode->_data;
-	delete tempNode;
-	cout << "Dequeued Item: " << tempData << endl;
-
-	return tempData;
+	catch (EOL& dequeueEOL) {
+		cout << dequeueEOL.what() << endl;
+	}
 }
 
 // display all elements of the list from #_head to #_tail

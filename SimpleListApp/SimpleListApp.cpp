@@ -19,6 +19,10 @@ int main()
     s1.queueItem(100);
     s1.queueItem(200);
     s1.queueItem(300);
-    cout << s1.deQueueItem() << endl; // dequeue 100
-    s1.displayList();
+    //cout << s1.deQueueItem() << endl; // dequeue 100
+    s1.deQueueItem();
+    s1.deQueueItem();
+    s1.deQueueItem();
+    s1.deQueueItem(); // dequeue 4 times
+    //s1.displayList();
 }
